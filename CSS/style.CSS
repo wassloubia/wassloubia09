@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap');
+/* l etoile donne du style a tout les elements */
+
+body {
+background: url(./pg.jpg) center/cover;
+/* 100vh = 100 pourcent de la taille de l ecran vw= taille de l ecran de lutilisateur */
+min-height: 100vh;
+}
+h1 {
+   text-transform: uppercase;
+   letter-spacing: 3px; 
+   text-align: center;
+   /* les tailles de police doivent etre en rem */
+   font-size: 7vw;
+   text-shadow: 15px 10px 7px #000000a3;
+   color: rgb(89, 73, 235);
+   font-family: "Parkinsans", sans-serif;
+   font-optical-sizing: auto;
+   font-weight: <500>;
+   font-style: normal;
+}
+main {
+    min-height: 500px;
+    width: 90%;
+    background-color: rgba(173, 51, 68, 0.87);
+    /* centrer une boite */
+    margin: 0 auto;
+   border: 4px solid black;
+   border-radius: 20px;
+   box-shadow: 0 0 0 black;
+   padding: 15px; 
+
+}
+h2 {
+    margin: 0;
+}
+.FlexBox, 
+.grid,
+.absolute {
+    background-color: rgb(180, 106, 174);
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  min-height: 150px;  
+}
+/* FLEXBOX SERT A REPARTIR EQUITABLEMENT DES ELEMENT SUR LA PAGE */
+.FlexBox ul {
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+.FlexBox li {
+    font-family: "parkinsans", sans-serif;
+    list-style: 0;
+    height: 250px;
+    width: 250px;
+    margin: 10px;
+    background-color: rgb(146, 113, 51);
+    border: 2px solid black;
+    border-radius: 10px;
+    /* centrer un unique element verticalement et horizontalement  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+/* GRID */
+.grid-container {
+ display: grid;
+ grid-template-columns: 40% 60%;   
+}
+.grid img {
+   width: 80%; 
+   margin: 20px auto;
+   border:2px solid black ;
+   border-radius: 20px ;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 
+   "i1 i2"
+   "ta ta"
+   "vi bt";    
+}
+input, textarea {
+  margin: 5px;
+  border: 1px solid rgb(0, 0, 0);
+  padding: 10px;
+  font-size: 1.1rem;
+  font-family: "DMSerif";
+  height: 40px;
+  resize: none;
+  border-radius: 5px;
+
+}
+textarea {
+   grid-area: ta; 
+}
+#btn-submit {
+ color: rgb(255, 255, 255);
+ grid-area: bt;
+ cursor: pointer;
+ background-color: black;
+ transition: 0.2s;
+}
+#btn-submit:hover {
+    background-color: rgb(83, 12, 83);
+}
+/* ABSOLUTE */
+/* il faut mettre une position relative pour contraindre l element en absolute dans ses frontiere ( le parent)  */
+.absolute {
+ position: relative;   
+}
+#circle1 {
+  height: 80px;
+  width: 80px;
+  background-color: blueviolet;
+  position: absolute;
+  border-radius: 150px;
+  top: 0;
+  right: 0;
+}
+#circle2 {
+    height: 40px;
+    width: 40px;
+    background-color: blueviolet;
+    position: absolute;
+    border-radius: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;   
+}
+/* RESPONSIVE */
+@media screen and (max-width: 952px) {
+  .grid-container {
+   display: block; 
+  }
+  .grid img {
+   width: 40%;
+   margin: 10px auto;
+   display: block; 
+  }
+@media screen and (max-width:596px) {
+    .FlexBox ul {
+      flex-direction: column;
+      align-items: center;  
+    }
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: 
+             "i1"
+             "i2"
+             "ta"
+             "bt";
+    }
+   input,
+   textarea {
+    font-size: 0.8rem;
+   }
+} 
+}
